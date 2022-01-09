@@ -14,7 +14,7 @@ class AsteroidRadarApp: Application() {
         injectKoinModules(this)
         Timber.plant(Timber.DebugTree())
         AndroidThreeTen.init(this)
-        WorkManagerAdmin.initWorkManagers()
+        WorkManagerAdmin.initWorkManagers(this)
     }
 
 }

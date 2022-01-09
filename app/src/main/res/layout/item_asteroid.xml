@@ -4,25 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="asteroid"
             type="com.udacity.asteroidradar.platform.views.common.model.AsteroidModel" />
+
+        <variable
+            name="listener"
+            type="com.udacity.asteroidradar.platform.views.list_asteroids.OnAsteroidClicked" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/app_background">
+        android:background="@color/colorPrimary"
+        android:contentDescription="@{String.format(@string/cd_asteroid_to_select, asteroid.codename)}"
+        android:onClick="@{_ -> listener.onAsteroidClickedListener(asteroid)}"
+        android:paddingStart="@dimen/d_four"
+        android:paddingTop="@dimen/d_one_and_half"
+        android:paddingEnd="@dimen/d_four"
+        android:paddingBottom="@dimen/d_one_and_half">
 
-        <TextView
-            android:id="@+id/tv_codename"
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{asteroid.codename}"
-            android:textColor="@color/default_text_color"
+            android:elevation="@dimen/d_half"
+            app:cardCornerRadius="@dimen/d_half"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Asteroidazo memero" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary">
+
+                <ImageView
+                    android:id="@+id/iv_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/d_half"
+                    android:contentDescription="@string/cd_iv_right"
+                    android:src="@drawable/ic_more_vertical_white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_codename"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="112dp"
+                    android:text="@{asteroid.codename}"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/s_subtitle"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Meme asteroid" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_asteroid"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="@dimen/d_half"
+            android:src="@drawable/asteroid_default"
+            android:translationZ="@dimen/d_quarter"
+            app:civ_border_width="@dimen/d_quarter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

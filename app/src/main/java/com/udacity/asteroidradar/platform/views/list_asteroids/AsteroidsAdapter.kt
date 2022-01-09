@@ -9,19 +9,22 @@ import com.udacity.asteroidradar.databinding.ItemAsteroidBinding
 import com.udacity.asteroidradar.platform.views.common.model.AsteroidModel
 
 
-class AsteroidsAdapter: ListAdapter<AsteroidModel, AsteroidsAdapter.ViewHolder>(diffUtil) {
+class AsteroidsAdapter(
+    private val listener: OnAsteroidClicked
+): ListAdapter<AsteroidModel, AsteroidsAdapter.ViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.bind(getItem(position))
+        viewHolder.bind(getItem(position), listener)
     }
 
     class ViewHolder(private val binding: ItemAsteroidBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(asteroid: AsteroidModel) {
+        fun bind(asteroid: AsteroidModel, listener: OnAsteroidClicked) {
             binding.asteroid = asteroid
+            binding.listener = listener
             binding.executePendingBindings()
         }
 

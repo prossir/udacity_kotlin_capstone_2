@@ -9,7 +9,6 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 import org.koin.core.KoinComponent
 import org.koin.core.inject
-import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
 
@@ -29,13 +28,24 @@ class PictureOfTheDaySyncWorkManager(
                     Result.failure()
                 }
             } catch (e: Exception) {
-                Timber.e(e, "Error getting new picture of the day")
                 Result.failure()
             }
         }
     }
 
     companion object {
+        // only when installing the app for the first time
+        fun initialWorkRequest() = OneTimeWorkRequest.Builder(PictureOfTheDaySyncWorkManager::class.java)
+            .addTag(TAG_WORKER_PICTURE_OF_THE_DAY_SYNC)
+            .setInitialDelay(INITIAL_DELAY, TimeUnit.SECONDS)
+            .setConstraints(SYNC_CONSTRAINTS)
+            .setBackoffCriteria(
+                BackoffPolicy.LINEAR,
+                OneTimeWorkRequest.MIN_BACKOFF_MILLIS,
+                TimeUnit.MILLISECONDS
+            )
+            .build()
+
         fun periodicWorkRequest() = PeriodicWorkRequest.Builder(
             PictureOfTheDaySyncWorkManager::class.java, REPEAT_INTERVAL, TimeUnit.HOURS, FLEX_INTERVAL, TimeUnit.HOURS)
             .addTag(TAG_WORKER_PICTURE_OF_THE_DAY_SYNC)
@@ -44,11 +54,13 @@ class PictureOfTheDaySyncWorkManager(
             .build()
 
         const val TAG_WORKER_PICTURE_OF_THE_DAY_SYNC = "SyncPictureOfTheDayWorkManager"
+
+        private const val INITIAL_DELAY = 5L
+
         private const val REPEAT_INTERVAL = 24L
         private const val FLEX_INTERVAL = 1L
 
         private val SYNC_CONSTRAINTS = Constraints.Builder()
-            .setRequiresBatteryNotLow(true)
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
     }

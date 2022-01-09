@@ -5,18 +5,20 @@ import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import com.udacity.asteroidradar.R
 import com.udacity.asteroidradar.databinding.FragmentMainBinding
+import com.udacity.asteroidradar.platform.views.common.model.AsteroidModel
 import com.udacity.asteroidradar.platform.views.common.views.MainViewModel
 import com.udacity.asteroidradar.platform.views.common.views.MainViewState
 import com.udacity.asteroidradar.utils.extensions.negativeHaptics
 
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(), OnAsteroidClicked {
 
     private lateinit var binding: FragmentMainBinding
-    private lateinit var adapter: AsteroidsAdapter
     private val viewModel by activityViewModels<MainViewModel>()
+    private val adapter: AsteroidsAdapter = AsteroidsAdapter(this)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
@@ -41,14 +43,6 @@ class MainFragment : Fragment() {
     private fun initObservers() {
         viewModel.viewState.observe(viewLifecycleOwner, { state ->
             when(state) {
-                is MainViewState.SuccessInGettingAsteroids -> {
-                    viewModel.asteroids.observe(viewLifecycleOwner, {
-                        if(it.isEmpty()) {
-                            viewModel.stateMessage.value = "No asteroids found"
-                        }
-                        adapter.submitList(it)
-                    })
-                }
                 is MainViewState.Failure -> {
                     activity?.let {
                         context?.negativeHaptics()
@@ -56,16 +50,27 @@ class MainFragment : Fragment() {
                 }
                 else -> { /* No case */ }
             }
+        })
 
+        viewModel.asteroids.observe(viewLifecycleOwner, {
+            if(it.isEmpty()) {
+                viewModel.stateMessage.value = getString(R.string.error_no_asteroids)
+            }
+            adapter.submitList(it)
         })
     }
 
     private fun initUi() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-
-        adapter = AsteroidsAdapter()
         binding.rvAsteroids.adapter = adapter
+    }
+
+    // I do not know if it is required per se to send it through the navigate
+    // with secure arguments as I could simply put an observable on the current selected
+    // asteroid and just navigate there.
+    override fun onAsteroidClickedListener(asteroid: AsteroidModel) {
+        requireView().findNavController().navigate(MainFragmentDirections.actionToDetail(asteroid))
     }
 
 }

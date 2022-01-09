@@ -7,15 +7,6 @@ import com.udacity.asteroidradar.R
 import com.squareup.picasso.Picasso
 
 
-@BindingAdapter("statusIcon")
-fun bindAsteroidStatusImage(imageView: ImageView, isHazardous: Boolean) {
-    if (isHazardous) {
-        imageView.setImageResource(R.drawable.ic_status_potentially_hazardous)
-    } else {
-        imageView.setImageResource(R.drawable.ic_status_normal)
-    }
-}
-
 @BindingAdapter("asteroidStatusImage")
 fun bindDetailsStatusImage(imageView: ImageView, isHazardous: Boolean) {
     if (isHazardous) {
@@ -27,26 +18,22 @@ fun bindDetailsStatusImage(imageView: ImageView, isHazardous: Boolean) {
 
 @BindingAdapter("astronomicalUnitText")
 fun bindTextViewToAstronomicalUnit(textView: TextView, number: String) {
-    val context = textView.context
-    textView.text = String.format(context.getString(R.string.astronomical_unit_format), number)
+    textView.text = String.format(textView.context.getString(R.string.astronomical_unit_format_string), number)
 }
 
 @BindingAdapter("astronomicalUnitDouble")
 fun bindTextViewToAstronomicalUnitAsDouble(textView: TextView, number: Double) {
-    val context = textView.context
-    textView.text = String.format(context.getString(R.string.astronomical_unit_format), number)
+    textView.text = String.format(textView.context.getString(R.string.astronomical_unit_format), number)
 }
 
 @BindingAdapter("kmUnitText")
 fun bindTextViewToKmUnit(textView: TextView, number: Double) {
-    val context = textView.context
-    textView.text = String.format(context.getString(R.string.km_unit_format), number)
+    textView.text = String.format(textView.context.getString(R.string.km_unit_format), number)
 }
 
 @BindingAdapter("velocityText")
 fun bindTextViewToDisplayVelocity(textView: TextView, number: String) {
-    val context = textView.context
-    textView.text = String.format(context.getString(R.string.km_s_unit_format), number)
+    textView.text = String.format(textView.context.getString(R.string.km_s_unit_format), number)
 }
 
 @BindingAdapter("imageUrl", "imageErrorResource")

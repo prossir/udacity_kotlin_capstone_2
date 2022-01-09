@@ -1,31 +1,45 @@
 <resources>
+    <!-- Title -->
     <string name="app_name">Asteroid Radar Capstone 2</string>
 
-    <!-- Error control -->
-    <string name="error_no_internet_connection_title">Upss!! Internet Error</string>
+    <!-- FailureMapper.kt -->
+    <string name="error_no_internet_connection_title">Ups!! Internet error</string>
     <string name="error_no_internet_connection_description">You are not connected to the internet</string>
-    <string name="error_server_request_error_title">Upss! Server Error</string>
-    <string name="error_server_request_error_description">There was a problem connecting to the services</string>
-    <string name="error_ups">Upss!</string>
+    <string name="error_server_request_error_title">Ups! Server error</string>
+    <string name="error_server_request_error_description">There was a problem connecting with the services</string>
+    <string name="error_ups" translatable="false">Ups!</string>
     <string name="error_an_error_occurred">There was an error</string>
 
+    <!-- BindingAdapters.kt -->
+    <string name="astronomical_unit_format_string" translatable="false">%s au</string>
+    <string name="astronomical_unit_format" translatable="false">%f au</string>
+    <string name="km_unit_format" translatable="false">%f km</string>
+    <string name="km_s_unit_format" translatable="false">%s km/s</string>
+
+    <!-- main_overflow_menu.xml -->
     <string name="next_week_asteroids">View week asteroids</string>
     <string name="today_asteroids">View today asteroids</string>
     <string name="saved_asteroids">View saved asteroids</string>
+
+    <!-- fragment_main.xml -->
+    <string name="the_nasa_image_of_the_day">The NASA Image of the day</string>
+    <string name="image_of_the_day">Image of the day</string>
+    <!-- MainFragment.kt -->
+    <string name="error_no_asteroids">No asteroids found</string>
+
+    <!-- fragment_detail.xml -->
     <string name="close_approach_data_title">Close approach date</string>
     <string name="absolute_magnitude_title">Absolute magnitude</string>
     <string name="estimated_diameter_title">Estimated diameter</string>
     <string name="relative_velocity_title">Relative velocity</string>
     <string name="distance_from_earth_title">Distance from earth</string>
-    <string name="astronomical_unit_format">%f au</string>
-    <string name="km_unit_format">%f km</string>
-    <string name="km_s_unit_format">%f km/s</string>
-    <string name="image_of_the_day">Image of the Day</string>
-    <string name="astronomica_unit_explanation">The astronomical unit (au) is a unit of length, roughly the distance from Earth to the Sun and equal to about 150 million kilometres (93 million miles)</string>
+    <string name="cd_asteroid_image">A placeholder image of the asteroid</string>
+    <string name="cd_au_help_explanation">A image button for displaying what the AU unit means</string>
+    <!-- DetailFragment.kt -->
+    <string name="astronomical_unit_explanation">The astronomical unit (au) is a unit of length, roughly the distance from Earth to the Sun and equal to about 150 million kilometres (93 million miles)</string>
     <string name="astronomical_unit_explanation_button">Astronomical unit definition</string>
-    <string name="potentially_hazardous_asteroid_image">Potentially hazardous asteroid image</string>
-    <string name="not_hazardous_asteroid_image">Not hazardous asteroid image</string>
-    <string name="this_is_nasa_s_picture_of_day_showing_nothing_yet">This is NASA\'s picture of day, showing nothing yet</string>
-    <string name="nasa_picture_of_day_content_description_format">NASA\'s picture of day: %s</string>
-    <string name="the_nasa_image_of_the_day">The NASA Image of the day</string>
+
+    <!-- item_asteroid.xml -->
+    <string name="cd_asteroid_to_select">The asteroid: %s</string>
+    <string name="cd_iv_right">A mark that indicates that this is a single asteroid</string>
 </resources>

@@ -15,7 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/app_background">
+        android:background="@color/colorPrimary">
 
         <FrameLayout
             android:id="@+id/activity_main_image_of_the_day_layout"
@@ -40,11 +40,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:background="#55010613"
-                android:padding="16dp"
+                android:background="@color/transparentColorPrimary"
+                android:padding="@dimen/d_two"
                 android:text="@string/image_of_the_day"
                 android:textColor="#455A64"
-                android:textSize="20sp"
+                android:textSize="@dimen/s_title"
                 android:textStyle="bold" />
 
         </FrameLayout>
@@ -54,24 +54,25 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:visibility="@{viewModel.isError ? View.GONE: View.VISIBLE}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/activity_main_image_of_the_day_layout"
+            app:spanCount="2"
             tools:listitem="@layout/item_asteroid"
-            tools:visibility="gone" />
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/tv_asteroid_error"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/app_background"
+            android:layout_margin="@dimen/d_three"
+            android:background="@color/colorPrimary"
             android:gravity="center"
             android:text="@{viewModel.stateMessage}"
-            android:textColor="@color/default_text_color"
-            android:textSize="16sp"
-            android:layout_margin="24dp"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/s_subtitle"
             android:visibility="@{viewModel.isError ? View.VISIBLE: View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +84,7 @@
             android:id="@+id/lav_retry"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/d_one_and_half"
             android:onClick="@{_ -> viewModel.retry()}"
             android:visibility="@{viewModel.isError ? View.VISIBLE: View.GONE}"
             app:layout_constraintEnd_toEndOf="parent"
@@ -98,7 +99,7 @@
             android:id="@+id/lav_loader"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/d_one_and_half"
             android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

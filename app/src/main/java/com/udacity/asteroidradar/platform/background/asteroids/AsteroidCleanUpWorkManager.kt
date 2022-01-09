@@ -48,8 +48,6 @@ class AsteroidCleanUpWorkManager(
         private const val FLEX_INTERVAL = 1L
 
         private val SYNC_CONSTRAINTS = Constraints.Builder()
-            .setRequiresBatteryNotLow(true)
-            .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
     }
 

@@ -17,7 +17,7 @@ fun CoroutineScope.safeLaunch(
     return this.launch(exceptionHandler) { bock(this) }
 }
 
-suspend fun <T> CoroutineScope.with(
+suspend fun <T> CoroutineScope.withDispatcher(
     dispatcher: CoroutineDispatcher,
     block: suspend CoroutineScope.() -> T
 ) = withContext(dispatcher) { block() }

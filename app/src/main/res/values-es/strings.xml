@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Asteroid - Piedra angular 2</string>
+    <string name="error_no_internet_connection_title">Ups!! Error de internet</string>
+    <string name="image_of_the_day">Imagen del día</string>
+    <string name="distance_from_earth_title">Distancia desde la tierra</string>
+    <string name="relative_velocity_title">Velocidad relativa</string>
+    <string name="estimated_diameter_title">Diámetro estimado</string>
+    <string name="absolute_magnitude_title">Magnitud absoluta</string>
+    <string name="close_approach_data_title">Fecha de aproximación máxima</string>
+    <string name="saved_asteroids">Ver asteroides guardados</string>
+    <string name="today_asteroids">Ver asteroides de hoy</string>
+    <string name="next_week_asteroids">Ver asteroides semanales</string>
+    <string name="error_an_error_occurred">Hubo un error</string>
+    <string name="astronomical_unit_explanation">La unidad astronómica (au) es una unidad de medida, mas o menos la distancia desde la Tierra al Sol aproximada equivalente 150 millones de kilometros (93 millones de millas)</string>
+    <string name="astronomical_unit_explanation_button">Definición de unidad astronómica</string>
+    <string name="error_no_internet_connection_description">No estas conectado al internet</string>
+    <string name="error_server_request_error_title">Ups!! Error de servidor</string>
+    <string name="error_server_request_error_description">Hubo un problema al conectarse a los servicios</string>
+    <string name="cd_iv_right">Un indicador que indica que este es un asteroide único</string>
+    <string name="the_nasa_image_of_the_day">La imagen del día de la NASA</string>
+    <string name="cd_asteroid_to_select">El asteroide: %s</string>
+    <string name="cd_asteroid_image">Una imagen de reemplazo del asteroide</string>
+    <string name="cd_au_help_explanation">Un botón para mostrar una explicación de lo que la unidad AU significa.</string>
+    <string name="error_no_asteroids">No se encontraron asteroides</string>
+</resources>

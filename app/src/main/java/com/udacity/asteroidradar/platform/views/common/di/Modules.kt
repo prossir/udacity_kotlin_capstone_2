@@ -14,6 +14,6 @@ internal val commonFeatureModule = module {
     factory { MainFailureMapper() }
     factory { PictureOfTheDayMapper() }
 
-    viewModel { MainViewModel(get(), get(), get(), get()) }
+    viewModel { MainViewModel(get(), get(), get(), get(), get()) }
 
 }

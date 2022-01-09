@@ -20,7 +20,7 @@ class PictureOfTheDayLocalDataSource(
         return pictureOfTheDayDao.findFromBefore(date)
     }
 
-    suspend fun insert(pictureOfTheDay: PictureOfTheDayEntity) : Int {
+    fun insert(pictureOfTheDay: PictureOfTheDayEntity) : Int {
         val result = pictureOfTheDayDao.insert(pictureOfTheDay)
         return if(result != 0L) 1 else 0
     }
