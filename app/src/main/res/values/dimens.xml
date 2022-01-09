@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Distance dimension for components -->
+    <dimen name="d_dynamic">0dp</dimen>
     <dimen name="d_quarter">2dp</dimen>
     <dimen name="d_half">4dp</dimen>
     <dimen name="d_one">8dp</dimen>
@@ -8,6 +9,11 @@
     <dimen name="d_two">16dp</dimen>
     <dimen name="d_three">24dp</dimen>
     <dimen name="d_four">32dp</dimen>
+
+    <!-- Custom distance dimensions -->
+    <dimen name="d_fixed_upper_image_height">220dp</dimen>
+    <dimen name="d_retry_height">80dp</dimen>
+    <dimen name="d_loader_height">200dp</dimen>
 
     <!-- Size for letters -->
     <dimen name="s_subtitle">16sp</dimen>

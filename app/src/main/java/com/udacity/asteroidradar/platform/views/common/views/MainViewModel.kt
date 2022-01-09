@@ -2,6 +2,7 @@ package com.udacity.asteroidradar.platform.views.common.views
 
 import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.*
+import com.udacity.asteroidradar.R
 import com.udacity.asteroidradar.domain.use_case.asteroid.GetAsteroidsUseCase
 import com.udacity.asteroidradar.domain.use_case.asteroid.SaveAsteroidsUseCase
 import com.udacity.asteroidradar.domain.use_case.picture_of_the_day.GetPictureOfTheDayUseCase
@@ -31,7 +32,7 @@ class MainViewModel(
 
     val isLoading: ObservableBoolean = ObservableBoolean(true)
     val isError: ObservableBoolean = ObservableBoolean(false)
-    val stateMessage: MutableLiveData<String> = MutableLiveData("")
+    val stateMessage: MutableLiveData<Int> = MutableLiveData(0)
 
     // Picture of the day
     val pictureOfTheDay: LiveData<PictureOfTheDayModel?>
@@ -66,7 +67,7 @@ class MainViewModel(
         Timber.d(t)
         isLoading.set(false)
         isError.set(true)
-        stateMessage.value = "There was an error getting the asteroids. Please retry."
+        stateMessage.value = R.string.error_getting_asteroids
         _viewState.value = MainViewState.Failure
     }
 

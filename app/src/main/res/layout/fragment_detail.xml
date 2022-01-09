@@ -21,19 +21,19 @@
         <ImageView
             android:id="@+id/iv_asteroid_image"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/d_fixed_upper_image_height"
             android:adjustViewBounds="true"
+            android:contentDescription="@string/cd_asteroid_image"
             app:asteroidStatusImage="@{asteroid.potentiallyHazardous}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/asteroid_safe"
-            android:contentDescription="@string/cd_asteroid_image" />
+            tools:srcCompat="@drawable/asteroid_safe" />
 
         <ScrollView
-            android:layout_width="0dp"
+            android:layout_width="@dimen/d_dynamic"
             android:layout_height="wrap_content"
-            android:padding="16dp"
+            android:padding="@dimen/d_two"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_asteroid_image">

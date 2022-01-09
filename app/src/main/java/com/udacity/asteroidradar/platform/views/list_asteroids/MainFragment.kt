@@ -22,6 +22,7 @@ class MainFragment : Fragment(), OnAsteroidClicked {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -54,7 +55,7 @@ class MainFragment : Fragment(), OnAsteroidClicked {
 
         viewModel.asteroids.observe(viewLifecycleOwner, {
             if(it.isEmpty()) {
-                viewModel.stateMessage.value = getString(R.string.error_no_asteroids)
+                viewModel.stateMessage.value = R.string.error_no_asteroids
             }
             adapter.submitList(it)
         })

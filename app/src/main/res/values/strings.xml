@@ -16,6 +16,10 @@
     <string name="km_unit_format" translatable="false">%f km</string>
     <string name="km_s_unit_format" translatable="false">%s km/s</string>
 
+    <!-- main_nav_graph -->
+    <string name="title_list_fragment">Nasa\' s asteroids</string>
+    <string name="title_detail_fragment">Asteroid detail</string>
+
     <!-- main_overflow_menu.xml -->
     <string name="next_week_asteroids">View week asteroids</string>
     <string name="today_asteroids">View today asteroids</string>
@@ -42,4 +46,5 @@
     <!-- item_asteroid.xml -->
     <string name="cd_asteroid_to_select">The asteroid: %s</string>
     <string name="cd_iv_right">A mark that indicates that this is a single asteroid</string>
+    <string name="error_getting_asteroids">There was an error while trying to get the asteroids. Please try again later.</string>
 </resources>

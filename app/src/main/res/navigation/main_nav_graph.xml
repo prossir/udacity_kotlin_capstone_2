@@ -7,8 +7,8 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.udacity.asteroidradar.platform.views.list_asteroids.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        android:label="@string/title_list_fragment"
+        tools:layout="@layout/fragment_main">
 
         <action
             android:id="@+id/action_to_detail"
@@ -19,11 +19,15 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.udacity.asteroidradar.platform.views.asteroid_detail.views.DetailFragment"
-        android:label="fragment_detail">
+        android:label="@string/title_detail_fragment"
+        tools:layout="@layout/fragment_detail">
 
         <argument
             android:name="selectedAsteroid"
             app:argType="com.udacity.asteroidradar.platform.views.common.model.AsteroidModel" />
+        <action
+            android:id="@+id/action_detailFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
 
     </fragment>
 

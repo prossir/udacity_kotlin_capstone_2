@@ -20,7 +20,7 @@
         <FrameLayout
             android:id="@+id/activity_main_image_of_the_day_layout"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
+            android:layout_height="@dimen/d_fixed_upper_image_height"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -43,7 +43,7 @@
                 android:background="@color/transparentColorPrimary"
                 android:padding="@dimen/d_two"
                 android:text="@string/image_of_the_day"
-                android:textColor="#455A64"
+                android:textColor="@color/colorAccent"
                 android:textSize="@dimen/s_title"
                 android:textStyle="bold" />
 
@@ -52,7 +52,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_asteroids"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="@dimen/d_dynamic"
             android:visibility="@{viewModel.isError ? View.GONE: View.VISIBLE}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -70,10 +70,10 @@
             android:layout_margin="@dimen/d_three"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="@{viewModel.stateMessage}"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/s_subtitle"
             android:visibility="@{viewModel.isError ? View.VISIBLE: View.GONE}"
+            app:errorText="@{viewModel.stateMessage}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,7 +83,7 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lav_retry"
             android:layout_width="wrap_content"
-            android:layout_height="80dp"
+            android:layout_height="@dimen/d_retry_height"
             android:layout_marginTop="@dimen/d_one_and_half"
             android:onClick="@{_ -> viewModel.retry()}"
             android:visibility="@{viewModel.isError ? View.VISIBLE: View.GONE}"
@@ -98,7 +98,7 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lav_loader"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="@dimen/d_loader_height"
             android:layout_marginTop="@dimen/d_one_and_half"
             android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -111,4 +111,5 @@
             app:lottie_loop="true" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

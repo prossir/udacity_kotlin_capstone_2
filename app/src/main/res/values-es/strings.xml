@@ -22,4 +22,6 @@
     <string name="cd_asteroid_image">Una imagen de reemplazo del asteroide</string>
     <string name="cd_au_help_explanation">Un botón para mostrar una explicación de lo que la unidad AU significa.</string>
     <string name="error_no_asteroids">No se encontraron asteroides</string>
+    <string name="title_list_fragment">Asteroides de la Nasa</string>
+    <string name="title_detail_fragment">Detalle de asteroide</string>
 </resources>

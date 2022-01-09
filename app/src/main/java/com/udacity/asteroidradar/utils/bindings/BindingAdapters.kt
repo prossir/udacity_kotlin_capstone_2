@@ -45,3 +45,8 @@ fun bindImageWithError(view: ImageView, imageUrl: String, imageErrorResource: St
         .error(view.context.resources.getIdentifier(imageErrorResource, "drawable", view.context.packageName))
         .into(view)
 }
+
+@BindingAdapter("errorText")
+fun setErrorText(view: TextView, errorText: Int) {
+    if(errorText != 0) view.text = view.context.getString(errorText)
+}

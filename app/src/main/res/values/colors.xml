@@ -4,9 +4,8 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FFFFFF</color>
 
-    <color name="transparentColorPrimary">#90212121</color>
+    <color name="transparentColorPrimary">#DA212121</color>
 
-    <color name="text_grey">#D2D2D2</color>
-    <color name="potentially_hazardous">#FF8282</color>
+    <color name="potentially_hazardous">#ff8a65</color>
 
 </resources>
