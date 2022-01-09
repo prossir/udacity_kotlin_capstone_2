@@ -30,6 +30,7 @@
     <string name="image_of_the_day">Image of the day</string>
     <!-- MainFragment.kt -->
     <string name="error_no_asteroids">No asteroids found</string>
+    <string name="error_getting_asteroids">There was an error while trying to get the asteroids. Please try again later.</string>
 
     <!-- fragment_detail.xml -->
     <string name="close_approach_data_title">Close approach date</string>
@@ -46,5 +47,8 @@
     <!-- item_asteroid.xml -->
     <string name="cd_asteroid_to_select">The asteroid: %s</string>
     <string name="cd_iv_right">A mark that indicates that this is a single asteroid</string>
-    <string name="error_getting_asteroids">There was an error while trying to get the asteroids. Please try again later.</string>
+
+    <!-- Shared between item_asteroid.xml & fragment_detail.xml -->
+    <string name="asteroid_transition" translatable="false">asteroid_transition</string>
+
 </resources>

@@ -14,8 +14,10 @@
     <dimen name="d_fixed_upper_image_height">220dp</dimen>
     <dimen name="d_retry_height">80dp</dimen>
     <dimen name="d_loader_height">200dp</dimen>
+    <dimen name="d_square_round_image">100dp</dimen>
 
     <!-- Size for letters -->
+    <dimen name="s_characteristic_title">12sp</dimen>
     <dimen name="s_subtitle">16sp</dimen>
     <dimen name="s_title">20sp</dimen>
 

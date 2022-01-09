@@ -24,4 +24,5 @@
     <string name="error_no_asteroids">No se encontraron asteroides</string>
     <string name="title_list_fragment">Asteroides de la Nasa</string>
     <string name="title_detail_fragment">Detalle de asteroide</string>
+    <string name="error_getting_asteroids">Hubo un error al traer los asteroides. Por favor vuelva a intentarlo mas tarde.</string>
 </resources>

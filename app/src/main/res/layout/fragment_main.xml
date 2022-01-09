@@ -43,9 +43,7 @@
                 android:background="@color/transparentColorPrimary"
                 android:padding="@dimen/d_two"
                 android:text="@string/image_of_the_day"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/s_title"
-                android:textStyle="bold" />
+                style="@style/Theme.Capstone2.Title" />
 
         </FrameLayout>
 

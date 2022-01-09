@@ -72,10 +72,11 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_asteroid"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/d_square_round_image"
+            android:layout_height="@dimen/d_square_round_image"
             android:layout_margin="@dimen/d_half"
             android:src="@drawable/asteroid_default"
+            android:transitionName="@string/asteroid_transition"
             android:translationZ="@dimen/d_quarter"
             app:civ_border_width="@dimen/d_quarter"
             app:layout_constraintEnd_toEndOf="parent"

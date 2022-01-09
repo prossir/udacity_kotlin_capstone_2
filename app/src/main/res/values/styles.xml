@@ -13,4 +13,21 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="Theme.Capstone2.Title">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/s_title</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.Capstone2.CharacteristicTitle">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/s_characteristic_title</item>
+    </style>
+
+    <style name="Theme.Capstone2.CharacteristicValue">
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/s_subtitle</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

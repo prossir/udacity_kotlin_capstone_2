@@ -32,7 +32,7 @@ class DetailFragment : Fragment(), OnHelpClickListener {
         arguments?.let {
             binding.asteroid = DetailFragmentArgs.fromBundle(it).selectedAsteroid
         }
-        binding.listener = this
+        binding.listener = { this.onAuUnitExplanationClicked() }
     }
 
     private fun displayAstronomicalUnitExplanationDialog() {
