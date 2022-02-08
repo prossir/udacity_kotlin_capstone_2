@@ -7,8 +7,8 @@ import androidx.room.Transaction
 import com.udacity.asteroidradar.utils.converters.DateTimeProvider
 import com.udacity.asteroidradar.utils.converters.di.NAMED_OFFSET_PROVIDER
 import com.udacity.asteroidradar.utils.db.models.PictureOfTheDayEntity
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import org.koin.core.qualifier.named
 import org.threeten.bp.OffsetDateTime
 
@@ -16,11 +16,7 @@ import org.threeten.bp.OffsetDateTime
 @Dao
 abstract class PictureOfTheDayDao : BaseDao<PictureOfTheDayEntity>, KoinComponent {
 
-    private val dateTimeProvider: DateTimeProvider<OffsetDateTime> by inject(
-        named(
-            NAMED_OFFSET_PROVIDER
-        )
-    )
+    private val dateTimeProvider: DateTimeProvider<OffsetDateTime> by inject(named(NAMED_OFFSET_PROVIDER))
 
     @Transaction
     open fun insertOrUpdate(entity: PictureOfTheDayEntity) {

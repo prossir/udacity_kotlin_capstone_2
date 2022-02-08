@@ -7,8 +7,8 @@ import androidx.room.Transaction
 import com.udacity.asteroidradar.utils.converters.DateTimeProvider
 import com.udacity.asteroidradar.utils.converters.di.NAMED_OFFSET_PROVIDER
 import com.udacity.asteroidradar.utils.db.models.AsteroidEntity
-import org.koin.core.KoinComponent
-import org.koin.core.inject
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import org.koin.core.qualifier.named
 import org.threeten.bp.OffsetDateTime
 
