@@ -41,7 +41,13 @@ abstract class AsteroidDao : BaseDao<AsteroidEntity>, KoinComponent {
     @Query("SELECT * FROM asteroid WHERE appearance_date < :date")
     abstract fun findFromBefore(date: String): List<AsteroidEntity>
 
+    @Query("SELECT * FROM asteroid WHERE appearance_date = :date")
+    abstract fun findLiveFromDate(date: String): LiveData<List<AsteroidEntity>>
+
+    @Query("SELECT * FROM asteroid WHERE appearance_date > :date")
+    abstract fun findLiveFromAfter(date: String): LiveData<List<AsteroidEntity>>
+
     @Query("SELECT * FROM asteroid ORDER BY created_at DESC")
-    abstract fun retrieveAll(): LiveData<List<AsteroidEntity>>
+    abstract fun getAllLive(): LiveData<List<AsteroidEntity>>
 
 }

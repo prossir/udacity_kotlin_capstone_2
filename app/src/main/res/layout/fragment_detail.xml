@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/d_fixed_upper_image_height"
             android:adjustViewBounds="true"
-            android:contentDescription="@string/cd_asteroid_image"
+            android:contentDescription="@{String.format(@string/cd_asteroid_description, asteroid.codename, context.getString(asteroid.potentiallyHazardousDescription))}"
             android:transitionName="@string/asteroid_transition"
             app:asteroidStatusImage="@{asteroid.potentiallyHazardous}"
             app:layout_constraintEnd_toEndOf="parent"

@@ -38,27 +38,44 @@ class MainFragment : Fragment(), OnAsteroidClicked {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return true
+        return when (item.itemId) {
+            R.id.show_weekly_asteroids -> {
+                viewModel.asteroidFilter.value = AsteroidFilterEnum.WEEKLY.type
+                return true
+            }
+            R.id.show_today_asteroids -> {
+                viewModel.asteroidFilter.value = AsteroidFilterEnum.DAILY.type
+                return true
+            }
+            R.id.show_all_asteroids -> {
+                viewModel.asteroidFilter.value = AsteroidFilterEnum.NO_FILTER.type
+                return true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
     }
 
     private fun initObservers() {
-        viewModel.viewState.observe(viewLifecycleOwner, { state ->
-            when(state) {
+        viewModel.viewState.observe(viewLifecycleOwner) { state ->
+            when (state) {
                 is MainViewState.Failure -> {
                     activity?.let {
                         context?.negativeHaptics()
                     }
                 }
-                else -> { /* No case */ }
+                else -> { /* No case */
+                }
             }
-        })
+        }
 
-        viewModel.asteroids.observe(viewLifecycleOwner, {
-            if(it.isEmpty()) {
+        viewModel.asteroids.observe(viewLifecycleOwner) {
+            if (it.isEmpty()) {
                 viewModel.stateMessage.value = R.string.error_no_asteroids
             }
             adapter.submitList(it)
-        })
+        }
     }
 
     private fun initUi() {

@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
-                android:contentDescription="@string/the_nasa_image_of_the_day"
+                android:contentDescription="@{String.format(@string/the_nasa_image_of_the_day, viewModel.pictureOfTheDay.explanation)}"
                 android:scaleType="centerCrop"
                 app:imageErrorResource="@{&quot;drawable/asteroid_of_the_day_error&quot;}"
                 app:imageUrl="@{viewModel.pictureOfTheDay != null ? viewModel.pictureOfTheDay.url : &quot;&quot;}"

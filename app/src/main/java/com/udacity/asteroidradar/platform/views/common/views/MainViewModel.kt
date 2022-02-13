@@ -10,6 +10,7 @@ import com.udacity.asteroidradar.platform.views.common.mapper.AsteroidMapper
 import com.udacity.asteroidradar.platform.views.common.mapper.PictureOfTheDayMapper
 import com.udacity.asteroidradar.platform.views.common.model.AsteroidModel
 import com.udacity.asteroidradar.platform.views.common.model.PictureOfTheDayModel
+import com.udacity.asteroidradar.platform.views.list_asteroids.AsteroidFilterEnum
 import com.udacity.asteroidradar.utils.extensions.safeLaunch
 import com.udacity.asteroidradar.utils.extensions.withDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
@@ -25,14 +26,19 @@ class MainViewModel(
     private val asteroidMapper: AsteroidMapper,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ViewModel() {
-
+    // Activity states
     val viewState: LiveData<MainViewState>
         get() = _viewState
     private val _viewState: MutableLiveData<MainViewState> = MutableLiveData()
 
+    // Visual state of the activity variables
     val isLoading: ObservableBoolean = ObservableBoolean(true)
     val isError: ObservableBoolean = ObservableBoolean(false)
     val stateMessage: MutableLiveData<Int> = MutableLiveData(0)
+
+    /** Active filter of the asteroids
+    @see AsteroidFilterEnum */
+    val asteroidFilter: MutableLiveData<Int?> = MutableLiveData(AsteroidFilterEnum.NO_FILTER.type)
 
     // Picture of the day
     val pictureOfTheDay: LiveData<PictureOfTheDayModel?>
@@ -46,7 +52,7 @@ class MainViewModel(
     init {
         isLoading.set(true)
         _pictureOfTheDay = Transformations.map(getPictureOfTheDayUseCase()) { it?.let { pictureOfTheDay -> pictureOfTheDayMapper.map(pictureOfTheDay) } }
-        _asteroids = Transformations.map(getAsteroidsUseCase()) { asteroidMapper.map(it) }
+        _asteroids = Transformations.map(getAsteroidsUseCase(asteroidFilter)) { asteroidMapper.map(it) }
         isLoading.set(false)
     }
 

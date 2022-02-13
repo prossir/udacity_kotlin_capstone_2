@@ -8,7 +8,7 @@ import com.udacity.asteroidradar.data.mapper.PictureOfTheDayLocalMapper
 import com.udacity.asteroidradar.data.mapper.PictureOfTheDayRemoteMapper
 import com.udacity.asteroidradar.domain.entity.PictureOfTheDay
 import com.udacity.asteroidradar.domain.repository.PictureOfTheDayRepository
-import com.udacity.asteroidradar.utils.extensions.formattedYesterday
+import com.udacity.asteroidradar.utils.extensions.yesterdayDate
 
 
 class PictureOfTheDayDataRepository(
@@ -31,7 +31,7 @@ class PictureOfTheDayDataRepository(
     }
 
     override suspend fun cleanStalePicturesOfTheDay(): Boolean {
-        pictureOfTheDayLocalDataSource.retrieveFromBefore(formattedYesterday).apply {
+        pictureOfTheDayLocalDataSource.retrieveFromBefore(yesterdayDate).apply {
             return pictureOfTheDayLocalDataSource.delete(this) == this.count()
         }
     }

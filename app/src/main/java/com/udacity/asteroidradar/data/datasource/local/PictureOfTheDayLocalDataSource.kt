@@ -3,7 +3,7 @@ package com.udacity.asteroidradar.data.datasource.local
 import androidx.lifecycle.LiveData
 import com.udacity.asteroidradar.utils.db.models.PictureOfTheDayEntity
 import com.udacity.asteroidradar.utils.db.provider.DaoProvider
-import com.udacity.asteroidradar.utils.extensions.formattedToday
+import com.udacity.asteroidradar.utils.extensions.todayDate
 
 
 class PictureOfTheDayLocalDataSource(
@@ -13,7 +13,7 @@ class PictureOfTheDayLocalDataSource(
     private val pictureOfTheDayDao = daoProvider.getPictureOfTheDayDao()
 
     fun retrieveLiveCurrent(): LiveData<PictureOfTheDayEntity?> {
-        return pictureOfTheDayDao.findLiveByDate(formattedToday)
+        return pictureOfTheDayDao.findLiveByDate(todayDate)
     }
 
     fun retrieveFromBefore(date: String): List<PictureOfTheDayEntity> {
