@@ -27,6 +27,7 @@ android {
             buildConfigField "Boolean", "DEBUG_MODE", "true"
             buildConfigField 'String', 'URL_PICTURE_OF_THE_DAY', quote("https://api.nasa.gov/planetary/")
             buildConfigField 'String', 'URL_ASTEROIDS', quote("https://api.nasa.gov/neo/rest/v1/")
+            buildConfigField 'String', 'NASA_API_KEY', quote("ZsJrKNwUktnpszbwAUwaDQvohbN02wN5gUPuvdwb")
         }
 
         release {
@@ -37,6 +38,8 @@ android {
             buildConfigField "Boolean", "DEBUG_MODE", "false"
             buildConfigField 'String', 'URL_PICTURE_OF_DAY', quote("https://api.nasa.gov/planetary/")
             buildConfigField 'String', 'URL_ASTEROIDS', quote("https://api.nasa.gov/neo/rest/v1/")
+            buildConfigField 'String', 'NASA_API_KEY', quote("ZsJrKNwUktnpszbwAUwaDQvohbN02wN5gUPuvdwb")
+
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

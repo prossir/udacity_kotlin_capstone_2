@@ -2,6 +2,7 @@ package com.udacity.asteroidradar.utils.network
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import com.udacity.asteroidradar.BuildConfig.NASA_API_KEY
 import com.udacity.asteroidradar.BuildConfig.DEBUG_MODE
 import okhttp3.Cache
 import okhttp3.Dispatcher
@@ -18,7 +19,7 @@ private const val READ_TIMEOUT_DEFAULT: Long = 3
 private const val WRITE_TIMEOUT_DEFAULT: Long = 5
 
 private const val HEADER_NAME_AUTHORIZATION = "api_key"
-private const val HEADER_NAME_ACCESS_TOKEN = "ZsJrKNwUktnpszbwAUwaDQvohbN02wN5gUPuvdwb"
+private const val HEADER_NAME_ACCESS_TOKEN = NASA_API_KEY
 
 fun createOkHttpClient(
     cache: Cache? = null,
