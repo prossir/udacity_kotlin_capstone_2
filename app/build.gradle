@@ -27,7 +27,7 @@ android {
             buildConfigField "Boolean", "DEBUG_MODE", "true"
             buildConfigField 'String', 'URL_PICTURE_OF_THE_DAY', quote("https://api.nasa.gov/planetary/")
             buildConfigField 'String', 'URL_ASTEROIDS', quote("https://api.nasa.gov/neo/rest/v1/")
-            buildConfigField 'String', 'NASA_API_KEY', quote("ZsJrKNwUktnpszbwAUwaDQvohbN02wN5gUPuvdwb")
+            buildConfigField 'String', 'NASA_API_KEY', quote("PUT_YOUR_NASA_KEY_HERE")
         }
 
         release {
